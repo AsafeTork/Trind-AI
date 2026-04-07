@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trind-AI Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../data/dashboard_data.js"></script>
+    <style>
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .dashboard-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .agent-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 30px 20px;
+            background: white;
+            text-align: center;
+            border: none;
+            transition: transform 0.2s;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .agent-card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #2c3e50;
+        }
+
+        .status-dot {
+            height: 12px;
+            width: 12px;
+            background-color: #dc3545;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .status-text {
+            color: #dc3545;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .icon-circle {
+            background-color: #ecf0f1;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 2rem;
+            color: #34495e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard-header">
+        <h1>Trind-AI Coordenador - Monitorização</h1>
+    </div>
+
+    <div class="container pb-5">
+        <h2 class="text-center mb-5" style="color: #7f8c8d; font-weight: 700;">Estado dos Agentes</h2>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="agent-card">
+                    <div class="icon-circle">📥</div>
+                    <h3>Agente Extrator</h3>
+                    <div class="mt-3">
+                        <span class="status-dot" id="dot-ext"></span>
+                        <span class="status-text" id="status-ext">DESCONHECIDO</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="agent-card">
+                    <div class="icon-circle">⚙️</div>
+                    <h3>Agente Transformador</h3>
+                    <div class="mt-3">
+                        <span class="status-dot" id="dot-trans"></span>
+                        <span class="status-text" id="status-trans">DESCONHECIDO</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="agent-card">
+                    <div class="icon-circle">📤</div>
+                    <h3>Agente Carregador</h3>
+                    <div class="mt-3">
+                        <span class="status-dot" id="dot-load"></span>
+                        <span class="status-text" id="status-load">DESCONHECIDO</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 text-center px-4 py-4 mx-auto"
+            style="max-width: 600px; background:#fff; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <h4 class="text-secondary fw-bold">Telemetria da Base de Dados</h4>
+            <p class="text-muted mb-4 mt-2" id="db-update">--</p>
+            <h1 class="display-3 fw-bold text-dark mt-1" id="db-records">--</h1>
+            <p class="text-muted mb-0">registos transformados em produção</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const isHealthy = typeof trindAiStats !== 'undefined';
+
+            const dotColor = isHealthy ? '#198754' : '#dc3545';
+            const statusText = isHealthy ? 'SAUDÁVEL' : 'OFFLINE / ERRO';
+
+            ['ext', 'trans', 'load'].forEach(agent => {
+                document.getElementById(`dot-${agent}`).style.backgroundColor = dotColor;
+                document.getElementById(`status-${agent}`).innerText = statusText;
+                document.getElementById(`status-${agent}`).style.color = dotColor;
+            });
+
+            if (isHealthy) {
+                document.getElementById('db-records').innerText = trindAiStats.records;
+                document.getElementById('db-records').style.color = '#2980b9';
+                document.getElementById('db-update').innerText = 'Sincronizado: ' + trindAiStats.updatedAt;
+            } else {
+                document.getElementById('db-records').innerText = 'OFFLINE';
+                document.getElementById('db-update').innerText = "Execute os scripts Python primeiro para abastecer o sistema.";
+            }
+        });
+    </script>
+</body>
+
+</html>
