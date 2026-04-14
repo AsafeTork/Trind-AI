@@ -51,3 +51,52 @@ Este projeto reflete os princípios elementares de *Continuous Deployment* unipo
 
 3. Exponha o Dashboard em tempo real:
    Como a arquitetura JavaScript consome passivamente a API local renderizada pelo Loader, não é necessário hostear *Live Server*. Limite-se a dar Duplo-Clique em `app/index.html` e maravilhe-se a observar em Monitor de Interface os 3 agentes Saudáveis de Data Streaming.
+
+
+# 🌐 Trind-AI: Landing Page de Alta Fidelidade
+
+> A vitrine tecnológica da arquitetura ETL resiliente impulsionada por Agentes Autônomos e Self-Healing.
+
+Esta é a interface visual e institucional do projeto **Trind-AI**. Desenvolvida com estética **Glassmorphism** e otimizada para telas **OLED**, esta Landing Page simula em tempo real o comportamento dos agentes de auto-cura do sistema principal.
+
+---
+
+## ✨ Destaques da Interface
+
+* **OLED Pure Black**: Contraste máximo utilizando `#000000` para uma experiência visual premium.
+* **Simulador de Auto-Cura**: Componente de terminal que demonstra a transição crítica de erros (`404 Not Found`) para o estado de sucesso (`200 OK`) através de intervenção autônoma.
+* **Agentes Reativos**: Orbes de vidro dinâmicas que reagem ao status do sistema — vibrando em estados de erro e flutuando suavemente em estabilidade.
+* **Arquitetura Moderna**: Construído com **Next.js 14**, **Tailwind CSS** e animações fluidas via **Framer Motion**.
+
+---
+
+## 🧠 Sobre o Core do Trind-AI
+
+O **Trind-AI** não é apenas um script, é um ecossistema infraestrutural desenhado para resolver a fragilidade de pipelines de dados:
+
+1.  **📥 Agente Extrator**: Extração determinística de dados via APIs.
+2.  **⚙️ Agente Transformador**: Validação de integridade JSON e purificação de registros.
+3.  **📤 Agente Carregador**: Persistência robusta em SQLite3 e telemetria.
+
+### 🧬 O Diferencial: Self-Healing
+Diferente de ferramentas tradicionais, o Trind-AI utiliza um módulo de **Reparação Regenerativa**. Ao detectar um crash, o orquestrador injeta patches no próprio código-fonte Python para expurgar fragmentos corruptos e reiniciar o fluxo organicamente.
+
+---
+
+## 🛠️ Stack Tecnológica da Landing Page
+
+* **Framework:** [Next.js](https://nextjs.org/)
+* **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
+* **Animações:** [Framer Motion](https://www.framer.com/motion/)
+* **Design:** [v0.app](https://v0.app)
+* **Deploy:** [Vercel](https://vercel.com/)
+
+---
+
+## 🚀 Acesso Rápido
+
+* **Visualize o Site:** [Clique aqui para acessar a Landing Page](https://v0-trind-ai-landing-page-7d0qpzjpr-contatork07-3481s-projects.vercel.app/)
+* **Repositório do Core (Python):** [Trind-AI Core](https://github.com/AsafeTork/Trind-AI)
+
+---
+*Desenvolvido com foco em resiliência e design futurista por Asafe Tork.*
