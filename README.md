@@ -95,7 +95,7 @@ Diferente de ferramentas tradicionais, o Trind-AI utiliza um módulo de **Repara
 
 ## 🚀 Acesso Rápido
 
-* **Visualize o Site:** [Clique aqui para acessar a Landing Page](https://v0-trind-ai-landing-page-7d0qpzjpr-contatork07-3481s-projects.vercel.app/)
+* **Visualize o Site:** [Clique aqui para acessar a Landing Page](https://v0-trind-ai-landing-page.vercel.app/)
 * **Repositório do Core (Python):** [Trind-AI Core](https://github.com/AsafeTork/Trind-AI)
 
 ---
